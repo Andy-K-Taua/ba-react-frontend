@@ -5,7 +5,7 @@ class SearchResults extends React.Component {
   render() {
 
     return (
-      <div></div>
+      <div>Search Results</div>
     );
 
   } // render()

@@ -5,7 +5,7 @@ class CreateFlight extends React.Component {
   render() {
 
     return (
-      <div></div>
+      <div>Create Flight</div>
     );
 
   } // render()
