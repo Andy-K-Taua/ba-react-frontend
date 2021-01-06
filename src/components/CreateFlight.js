@@ -8,8 +8,28 @@ class CreateFlight extends React.Component {
     origin: '',
     destination: '',
     date: '',
-    plane: '',
-    planeID: ''
+    planeID: '',
+    availablePlanes: []
+  }
+
+  componentDidMount() {
+    this.fetchPlanes();
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log('prevProps:', prevProps);
+    // this.fetchPlanes();
+  }
+
+  fetchPlanes = () => {
+    axios.get('http://localhost:3000/airplanes')
+    .then(response => {
+      console.log('FetchPlanes', response);
+      this.setState({availablePlanes: response.data})
+    })
+    .catch(error => {
+      console.warn(error);
+    })
   }
 
   handleNumber = (ev) => {

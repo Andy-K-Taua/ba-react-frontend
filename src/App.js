@@ -6,8 +6,9 @@ import ShowFlight from './components/ShowFlight';
 import CreatePlane from './components/CreatePlane';
 import CreateFlight from './components/CreateFlight';
 import axios from 'axios';
-import bootstrap from 'bootstrap';
-import {Route, Link, HashRouter as Router} from 'react-router-dom';
+import 'bootstrap';
+
+import {Route, /*Link, */HashRouter as Router} from 'react-router-dom';
 
 const RAILS_PLANES_BASE_URL = 'http://localhost:3000/flights';
 
@@ -49,7 +50,7 @@ class App extends React.Component {
 
         <nav className="navbar navbar-light bg-light">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">Find Your Flight</a>
+            <div className="navbar-brand">Find Your Flight</div>
           </div>
         </nav>
 
