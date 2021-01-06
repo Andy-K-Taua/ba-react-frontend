@@ -1,8 +1,6 @@
 import React from 'react';
 import '../App.css';
 
-
-
 class SearchForm extends React.Component {
 
   state = {
@@ -33,7 +31,7 @@ class SearchForm extends React.Component {
           <button>Search</button>
           <br />{ this.state.query }
         </form>
-</div>
+      </div>
     );
 
   } // render()
