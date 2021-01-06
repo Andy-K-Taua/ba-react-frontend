@@ -2,6 +2,17 @@ import React from 'react';
 
 class CreatePlane extends React.Component {
 
+
+  handleNumber = (ev) => {
+    this.setState({number: ev.target.value});
+  }
+  handleOrigin = (ev) => {
+    this.setState({origin: ev.target.value});
+  }
+  handleDestination = (ev) => {
+    this.setState({destination: ev.target.value});
+  }
+
   render() {
 
     return (
@@ -9,13 +20,13 @@ class CreatePlane extends React.Component {
         <h2>Create New Flight:</h2>
         <form onSubmit={this.handleSubmit}>
           <label>Plane name:
-            <input type="text" onChange={this.handleNumber} />
+            <input type="text" onChange={this.handlePlane} />
           </label><br />
           <label>Number of Rows:
-            <input type="text" placeholder="Origin" onChange={this.handleOrigin} />
+            <input type="text" onChange={this.handleRows} />
           </label><br />
           <label>Number of Columns:
-            <input type="text" placeholder="Destination" onChange={this.handleDestination} />
+            <input type="text" onChange={this.handleColumns} />
           </label><br />
           <button>Create Plane!</button>
         </form>
