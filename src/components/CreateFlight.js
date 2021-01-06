@@ -24,9 +24,6 @@ class CreateFlight extends React.Component {
   handleDate = (ev) => {
     this.setState({date: ev.target.value});
   }
-  handlePlane = (ev) => {
-    this.setState({plane: ev.target.value});
-  }
   handlePlaneID = (ev) => {
     this.setState({planeID: ev.target.value});
   }
@@ -37,7 +34,6 @@ class CreateFlight extends React.Component {
       origin: this.state.origin,
       destination: this.state.destination,
       date: this.state.date,
-      plane: this.state.plane,
       airplane_id: this.state.planeID
     })
     .then(response => {
