@@ -9,7 +9,7 @@ import axios from 'axios';
 
 import {Route, Link, HashRouter as Router} from 'react-router-dom';
 
-const RAILS_PLANES_BASE_URL = 'http://localhost:3000/app';
+const RAILS_PLANES_BASE_URL = 'http://localhost:3000/flights';
 
 class App extends React.Component {
 

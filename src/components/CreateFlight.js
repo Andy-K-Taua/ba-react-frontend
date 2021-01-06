@@ -12,22 +12,22 @@ class CreateFlight extends React.Component {
   }
 
   handleNumber = (ev) => {
-    this.setState({number: ev.target.value})
+    this.setState({number: ev.target.value});
   }
   handleOrigin = (ev) => {
-    console.log('Origin: ', ev.target.value);
+    this.setState({origin: ev.target.value});
   }
   handleDestination = (ev) => {
-    console.log('Destination: ', ev.target.value);
+    this.setState({destination: ev.target.value});
   }
   handleDate = (ev) => {
-    console.log('Date: ', ev.target.value);
+    this.setState({date: ev.target.value});
   }
   handlePlane = (ev) => {
-    console.log('Plane: ', ev.target.value);
+    this.setState({plane: ev.target.value});
   }
   handlePlaneID = (ev) => {
-    console.log('PlaneID: ', ev.target.value);
+    this.setState({plane_id: ev.target.value});
   }
 
   render() {
