@@ -6,6 +6,7 @@ import ShowFlight from './components/ShowFlight';
 import CreatePlane from './components/CreatePlane';
 import CreateFlight from './components/CreateFlight';
 import axios from 'axios';
+import bootstrap from 'bootstrap';
 
 import {Route, Link, HashRouter as Router} from 'react-router-dom';
 
@@ -49,7 +50,12 @@ class App extends React.Component {
     return (
       <div className="App">
 
-        <h1>Find Your Flight</h1>
+        <nav class="navbar navbar-light bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Find Your Flight</a>
+          </div>
+        </nav>
+
 
         <Router>
 
