@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class CreateFlight extends React.Component {
 
@@ -8,7 +9,7 @@ class CreateFlight extends React.Component {
     destination: '',
     date: '',
     plane: '',
-    plane_id: ''
+    planeID: ''
   }
 
   handleNumber = (ev) => {
@@ -27,7 +28,24 @@ class CreateFlight extends React.Component {
     this.setState({plane: ev.target.value});
   }
   handlePlaneID = (ev) => {
-    this.setState({plane_id: ev.target.value});
+    this.setState({planeID: ev.target.value});
+  }
+  handleSubmit = (ev) => {
+    ev.preventDefault();
+    axios.post('http://localhost:3000/flights', {
+      number: this.state.number,
+      origin: this.state.origin,
+      destination: this.state.destination,
+      date: this.state.date,
+      plane: this.state.plane,
+      airplane_id: this.state.planeID
+    })
+    .then(response => {
+      console.log('Success: ', response);
+    })
+    .catch(error => {
+      console.warn(error);
+    });
   }
 
   render() {
@@ -35,7 +53,7 @@ class CreateFlight extends React.Component {
     return (
       <div>
         <h2>Create New Flight:</h2>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <label>Enter flight number:
             <input type="text" placeholder="Flight number" onChange={this.handleNumber} />
           </label><br />
