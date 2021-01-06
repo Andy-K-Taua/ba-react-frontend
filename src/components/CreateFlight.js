@@ -5,7 +5,12 @@ class CreateFlight extends React.Component {
   render() {
 
     return (
-      <div>Create Flight</div>
+      <div>
+        <h2>Create New Flight:</h2>
+        <form>
+
+        </form>
+      </div>
     );
 
   } // render()
