@@ -49,19 +49,32 @@ class CreateFlight extends React.Component {
     return (
       <div>
         <h2>Create New Flight:</h2>
-        <form onSubmit={this.handleSubmit}>
-          <label>Enter flight number:
-            <input type="text" placeholder="Flight number" onChange={this.handleNumber} />
+        <form className="row g-3" onSubmit={this.handleSubmit}>
+          <div className="col-md-6">
+            <label for="inputFlightNumber4" className="form-label">Enter flight number:
+              <input type="text" className="form-control" placeholder="Flight number" onChange={this.handleNumber} />
+            </label><br />
+          </div>
+          <div className="col-md-6">
+            <label for="inputEnterOrigin4" className="form-label">Enter Origin:
+              <input type="text" className="form-control" placeholder="Origin" onChange={this.handleOrigin} />
+            </label><br />
+          </div>
+          <div className="col-12">
+            <label for="inputEnterDestination" className="form-label">Enter Destination:
+              <input type="text" className="form-control" placeholder="Destination" onChange={this.handleDestination} />
+            </label><br />
+          </div>
+          <div className="col-md-6">
+            <label for="Enter" className="form=label">Enter Date:
+              <input type="date" className="form-control" onChange={this.handleDate} />
+            </label><br />
+          </div>
+          <div className="col-md-4">
+          <label>Enter Plane:
+            <input type="text" placeholder="Plane" onChange={this.handlePlane} />
           </label><br />
-          <label>Enter Origin:
-            <input type="text" placeholder="Origin" onChange={this.handleOrigin} />
-          </label><br />
-          <label>Enter Destination:
-            <input type="text" placeholder="Destination" onChange={this.handleDestination} />
-          </label><br />
-          <label>Enter Date:
-            <input type="date" onChange={this.handleDate} />
-          </label><br />
+          </div>
           <label>Enter Plane ID:
             <input type="text" placeholder="Plane ID" onChange={this.handlePlaneID} />
           </label><br />
