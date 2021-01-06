@@ -8,8 +8,28 @@ class CreateFlight extends React.Component {
     origin: '',
     destination: '',
     date: '',
-    plane: '',
-    planeID: ''
+    planeID: '',
+    availablePlanes: []
+  }
+
+  componentDidMount() {
+    this.fetchPlanes();
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log('prevProps:', prevProps);
+    // this.fetchPlanes();
+  }
+
+  fetchPlanes = () => {
+    axios.get('http://localhost:3000/airplanes')
+    .then(response => {
+      console.log('FetchPlanes', response);
+      this.setState({availablePlanes: response.data})
+    })
+    .catch(error => {
+      console.warn(error);
+    })
   }
 
   handleNumber = (ev) => {
@@ -48,24 +68,45 @@ class CreateFlight extends React.Component {
 
     return (
       <div>
-        <h2>Create New Flight:</h2>
-        <form onSubmit={this.handleSubmit}>
-          <label>Enter flight number:
-            <input type="text" placeholder="Flight number" onChange={this.handleNumber} />
-          </label><br />
-          <label>Enter Origin:
-            <input type="text" placeholder="Origin" onChange={this.handleOrigin} />
-          </label><br />
-          <label>Enter Destination:
-            <input type="text" placeholder="Destination" onChange={this.handleDestination} />
-          </label><br />
-          <label>Enter Date:
-            <input type="date" onChange={this.handleDate} />
-          </label><br />
-          <label>Enter Plane ID:
-            <input type="text" placeholder="Plane ID" onChange={this.handlePlaneID} />
-          </label><br />
-          <button>Create Flight!</button>
+        <h2 className="heading">Create New Flight:</h2>
+        <form className="row g-3" onSubmit={this.handleSubmit}>
+          <div className="row align-item-center">
+          <div className="col">
+            <label for="inputEnterOrigin4" className="form-label">Enter Origin:
+              <input type="text" className="form-control" placeholder="Origin" onChange={this.handleOrigin} />
+            </label><br />
+          </div>
+          <div className="col">
+            <label for="inputEnterDestination" className="form-label">Enter Destination:
+              <input type="text" className="form-control" placeholder="Destination" onChange={this.handleDestination} />
+            </label><br />
+          </div>
+          <div className="col">
+            <label for="Enter" className="form=label">Enter Date:
+              <input type="date" className="form-control" onChange={this.handleDate} />
+            </label><br />
+          </div>
+          </div>
+          <div className="row aligh-item-center">
+          <div className="col">
+            <label for="inputFlightNumber4" className="form-label">Enter flight number:
+              <input type="text" className="form-control" placeholder="Flight number" onChange={this.handleNumber} />
+            </label><br />
+          </div>
+          <div className="col">
+            <label for="inputEnterPlane" className="form-label">Enter Plane:
+              <input type="text" className="form-control" placeholder="Plane" onChange={this.handlePlane} />
+            </label><br />
+          </div>
+          <div className="col">
+            <label for="inputEnterPlaneID">Enter Plane ID:
+              <input type="text" className="form-control" placeholder="Plane ID" onChange={this.handlePlaneID} />
+            </label><br />
+          </div>
+          </div>
+          <div className="col-12">
+            <button type="submit" className="btn btn-primary">Create Flight!</button>
+          </div>
         </form>
       </div>
     );
