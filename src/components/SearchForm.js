@@ -10,7 +10,7 @@ class SearchForm extends React.Component {
   };
 
   handleChange = (ev) => {
-    console.log('handleChange():', ev.target.value);
+    // console.log('handleChange():', ev.target.value);
     this.setState({ query: ev.target.value });
   }//handleChange
 
@@ -33,6 +33,8 @@ class SearchForm extends React.Component {
           <button>Search</button>
           <br />{ this.state.query }
         </form>
+
+      
 
       </div>
     );
