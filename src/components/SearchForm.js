@@ -33,7 +33,10 @@ class SearchForm extends React.Component {
           <button>Search</button>
           <br />{ this.state.query }
         </form>
-</div>
+
+      
+
+      </div>
     );
 
   } // render()

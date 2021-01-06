@@ -27,6 +27,8 @@ class App extends React.Component {
     .catch(console.warn);
   }//getSearchResults
 
+
+
   componentDidMount(){
     console.log('Mounted');
     this.getSearchResults();
@@ -63,7 +65,11 @@ class App extends React.Component {
           <Route exact path="/addplane" component={CreatePlane} />
           <Route exact path="/addflight" component={CreateFlight} />
 
-        </Router></div>
+        </Router>
+
+          <SearchResults search={this.state.search} />
+
+      </div>
     );
 
   } // render()
