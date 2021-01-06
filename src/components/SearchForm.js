@@ -1,6 +1,5 @@
 import React from 'react';
 import '../App.css';
-import axios from 'axios';
 
 
 
@@ -13,14 +12,15 @@ class SearchForm extends React.Component {
   handleChange = (ev) => {
     console.log('handleChange():', ev.target.value);
     this.setState({ query: ev.target.value });
-  }
+  }//handleChange
 
   handleSubmit = (ev) => {
     ev.preventDefault();
     console.log('submit!');
     // Send search query to parent component
     // this.props.onSearch( this.state.query );
-  }
+    this.props.history.push(`/results/${this.state.query}`);
+  }// handleSubmit
 
 
   render() {

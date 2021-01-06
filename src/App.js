@@ -9,7 +9,7 @@ import axios from 'axios';
 
 import {Route, Link, HashRouter as Router} from 'react-router-dom';
 
-const RAILS_PLANES_BASE_URL = 'http://localhost:3000/app';
+const RAILS_PLANES_BASE_URL = 'http://localhost:3000/flights';
 
 class App extends React.Component {
 
@@ -22,13 +22,14 @@ class App extends React.Component {
     .then( ( res ) => {
       console.log('response:', res.data );
     })
+    .catch(console.warn);
   }//getSearchResults
 
 
 
   componentDidMount(){
 
-
+    this.getSearchResults();
 
   }// componentDidMount
 
@@ -57,8 +58,6 @@ class App extends React.Component {
           <Route exact path="/addflight" component={CreateFlight} />
 
         </Router>
-
-        <SearchForm onSearchSubmit={this.saveSearch} />
 
       </div>
     );
