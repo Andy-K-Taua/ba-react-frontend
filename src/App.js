@@ -7,7 +7,6 @@ import CreatePlane from './components/CreatePlane';
 import CreateFlight from './components/CreateFlight';
 import axios from 'axios';
 import bootstrap from 'bootstrap';
-
 import {Route, Link, HashRouter as Router} from 'react-router-dom';
 
 const RAILS_PLANES_BASE_URL = 'http://localhost:3000/flights';
@@ -26,8 +25,6 @@ class App extends React.Component {
     })
     .catch(console.warn);
   }//getSearchResults
-
-
 
   componentDidMount(){
     console.log('Mounted');
@@ -50,9 +47,9 @@ class App extends React.Component {
     return (
       <div className="App">
 
-        <nav class="navbar navbar-light bg-light">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">Find Your Flight</a>
+        <nav className="navbar navbar-light bg-light">
+          <div className="container-fluid">
+            <a className="navbar-brand" href="#">Find Your Flight</a>
           </div>
         </nav>
 
@@ -65,11 +62,7 @@ class App extends React.Component {
           <Route exact path="/addplane" component={CreatePlane} />
           <Route exact path="/addflight" component={CreateFlight} />
 
-        </Router>
-
-          <SearchResults search={this.state.search} />
-
-      </div>
+        </Router></div>
     );
 
   } // render()

@@ -26,7 +26,7 @@ const SearchResults = ( props ) => {
             </table>
       </div>
     );
-
+    
 } // SearchResults
 
 export default SearchResults;
