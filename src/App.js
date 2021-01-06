@@ -21,6 +21,7 @@ class App extends React.Component {
     axios.get( RAILS_PLANES_BASE_URL )
     .then( ( res ) => {
       console.log('response:', res.data );
+      this.setState({search: res.data })
     })
     .catch(console.warn);
   }//getSearchResults
@@ -28,7 +29,7 @@ class App extends React.Component {
 
 
   componentDidMount(){
-
+    console.log('Mounted');
     this.getSearchResults();
 
   }// componentDidMount
@@ -38,6 +39,7 @@ class App extends React.Component {
     axios.post(RAILS_PLANES_BASE_URL, {search: search })
     .then( (res) => {
       console.log('response from POST:', res.data);
+      this.setState({ search: [res.data, ...this.state.search ]})
     })
     .catch(console.warn);
   }//saveSearch
@@ -58,6 +60,8 @@ class App extends React.Component {
           <Route exact path="/addflight" component={CreateFlight} />
 
         </Router>
+
+          <SearchResults search={this.state.search} />
 
       </div>
     );
