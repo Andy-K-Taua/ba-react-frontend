@@ -9,7 +9,7 @@ class CreateFlight extends React.Component {
     destination: '',
     date: '',
     planeID: '',
-    planes: ''
+    planes: []
   }
 
   componentDidMount() {
@@ -20,7 +20,7 @@ class CreateFlight extends React.Component {
   fetchPlanes = () => {
     axios.get('http://localhost:3000/airplanes')
     .then(response => {
-      this.setState({planes: response});
+      this.setState({planes: response.data});
     })
     .catch(error => {
       console.warn(error);
@@ -59,6 +59,7 @@ class CreateFlight extends React.Component {
     });
   }
 
+
   render() {
 
     return (
@@ -90,16 +91,20 @@ class CreateFlight extends React.Component {
               <input type="date" className="form-control" onChange={this.handleDate} />
             </label><br />
           </div>
+
           <div className="col-md-4">
-          <label htmlFor="inputEnterPlane" className="form-label">Enter Plane:
-            <input type="text" className="form-control" placeholder="Plane" onChange={this.handlePlane} />
+          <label htmlFor="inputSelectPlane" className="form-label">Select Plane:
+            <select name="plane" className="form-control">
+            {
+              this.state.planes.length > 0
+              &&
+              this.state.planes.map(plane => <option key={plane.id}>{plane.name}</option>)
+            }
+            {/* <input type="text" className="form-control" placeholder="Plane ID" onChange={this.handlePlaneID} /> */}
+            </select>
           </label><br />
           </div>
-          <div className="col-md-4">
-          <label htmlFor="inputEnterPlaneID" className="form-label">Enter Plane ID:
-            <input type="text" className="form-control" placeholder="Plane ID" onChange={this.handlePlaneID} />
-          </label><br />
-          </div>
+
           <div className="col-12">
             <button type="submit" className="btn btn-primary">Create Flight!</button>
           </div>
