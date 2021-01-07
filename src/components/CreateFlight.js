@@ -62,38 +62,48 @@ class CreateFlight extends React.Component {
 
     return (
       <div>
-        <h2>Create New Flight:</h2>
+        <nav className="navbar navbar-light bg-light">
+          <div className="container-fluid">
+            <div className="navbar-brand">Create New Flight</div>
+          </div>
+        </nav>
+        <div className="createFlight">
         <form className="row g-3" onSubmit={this.handleSubmit}>
-          <div className="col-md-6">
-            <label for="inputFlightNumber4" className="form-label">Enter flight number:
+          <div className="col-md-4">
+            <label htmlFor="inputFlightNumber4" className="form-label">Enter flight number:
               <input type="text" className="form-control" placeholder="Flight number" onChange={this.handleNumber} />
             </label><br />
           </div>
-          <div className="col-md-6">
-            <label for="inputEnterOrigin4" className="form-label">Enter Origin:
+          <div className="col-md-4">
+            <label htmlFor="inputEnterOrigin4" className="form-label">Enter Origin:
               <input type="text" className="form-control" placeholder="Origin" onChange={this.handleOrigin} />
             </label><br />
           </div>
-          <div className="col-12">
-            <label for="inputEnterDestination" className="form-label">Enter Destination:
+          <div className="col-md-4">
+            <label htmlFor="inputEnterDestination" className="form-label">Enter Destination:
               <input type="text" className="form-control" placeholder="Destination" onChange={this.handleDestination} />
             </label><br />
           </div>
-          <div className="col-md-6">
-            <label for="Enter" className="form=label">Enter Date:
+          <div className="col-md-4">
+            <label htmlFor="Enter" className="form=label">Enter Date:
               <input type="date" className="form-control" onChange={this.handleDate} />
             </label><br />
           </div>
           <div className="col-md-4">
-          <label>Enter Plane:
-            <input type="text" placeholder="Plane" onChange={this.handlePlane} />
+          <label htmlFor="inputEnterPlane" className="form-label">Enter Plane:
+            <input type="text" className="form-control" placeholder="Plane" onChange={this.handlePlane} />
           </label><br />
           </div>
-          <label>Enter Plane ID:
-            <input type="text" placeholder="Plane ID" onChange={this.handlePlaneID} />
+          <div className="col-md-4">
+          <label htmlFor="inputEnterPlaneID" className="form-label">Enter Plane ID:
+            <input type="text" className="form-control" placeholder="Plane ID" onChange={this.handlePlaneID} />
           </label><br />
-          <button>Create Flight!</button>
+          </div>
+          <div className="col-12">
+            <button type="submit" className="btn btn-primary">Create Flight!</button>
+          </div>
         </form>
+        </div>
       </div>
     );
 
