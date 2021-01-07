@@ -8,6 +8,7 @@ class CreateFlight extends React.Component {
     origin: '',
     destination: '',
     date: '',
+    plane:'',
     planeID: '',
     planes: []
   }
@@ -39,8 +40,9 @@ class CreateFlight extends React.Component {
   handleDate = (ev) => {
     this.setState({date: ev.target.value});
   }
-  handlePlaneID = (ev) => {
-    this.setState({planeID: ev.target.value});
+  handlePlane = async (ev) => {
+    await this.setState({plane: ev.target.value});
+    this.setState({planeID: this.state.planes.find(plane => plane.name === this.state.plane).id});
   }
   handleSubmit = (ev) => {
     ev.preventDefault();
@@ -94,7 +96,8 @@ class CreateFlight extends React.Component {
 
           <div className="col-md-4">
           <label htmlFor="inputSelectPlane" className="form-label">Select Plane:
-            <select name="plane" className="form-control">
+            <select name="plane" className="form-control" onChange={this.handlePlane}>
+              <option key="0">---Select Plane---</option>
             {
               this.state.planes.length > 0
               &&
