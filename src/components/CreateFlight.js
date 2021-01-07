@@ -8,18 +8,19 @@ class CreateFlight extends React.Component {
     origin: '',
     destination: '',
     date: '',
-    plane: '',
-    planeID: ''
+    planeID: '',
+    planes: ''
   }
 
   componentDidMount() {
     this.fetchPlanes();
+    window.setInterval(this.fetchPlanes, 5000);
   }
 
   fetchPlanes = () => {
     axios.get('http://localhost:3000/airplanes')
     .then(response => {
-      console.log('fetchResponse: ', response);
+      this.setState({planes: response});
     })
     .catch(error => {
       console.warn(error);
