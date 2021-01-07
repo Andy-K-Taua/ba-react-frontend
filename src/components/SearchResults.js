@@ -44,7 +44,7 @@ class SearchResults extends React.Component {
         <table className="table">
               <thead>
                 <tr>
-                  <th scope="col">Flight Number</th>
+                  <th scope="col" >Flight Number</th>
                   <th scope="col">Origin</th>
                   <th scope="col">Destination</th>
                   <th></th>
