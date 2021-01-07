@@ -1,6 +1,8 @@
 import React from 'react';
 import '../App.css';
 
+
+
 class SearchForm extends React.Component {
 
   state = {
@@ -32,7 +34,11 @@ class SearchForm extends React.Component {
           <br />{ this.state.query }
         </form>
 
-
+        <nav className="navbar navbar-light bg-light">
+          <div className="container-fluid">
+            <div className="navbar-brand">Find Your Flight</div>
+          </div>
+        </nav>
 
       </div>
     );

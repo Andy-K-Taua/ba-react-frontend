@@ -17,7 +17,7 @@ class CreatePlane extends React.Component {
 
     return (
       <div>
-        <h2>Create New Flight:</h2>
+        <h2>Create New Plane:</h2>
         <form onSubmit={this.handleSubmit}>
           <label>Plane name:
             <input type="text" onChange={this.handlePlane} />

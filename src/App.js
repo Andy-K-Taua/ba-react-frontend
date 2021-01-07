@@ -21,12 +21,6 @@ class App extends React.Component {
     return (
       <div className="App">
 
-        <nav className="navbar navbar-light bg-light">
-          <div className="container-fluid">
-            <div className="navbar-brand">Find Your Flight</div>
-          </div>
-        </nav>
-
 
         <Router>
 
