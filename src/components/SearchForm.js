@@ -28,17 +28,16 @@ class SearchForm extends React.Component {
     return (
 
       <div className="searchForm">
-        <form onSubmit={ this.handleSubmit }>
-          <input type="text" onChange={ this.handleChange } />
-          <button>Search</button>
-          <br />{ this.state.query }
-        </form>
-
         <nav className="navbar navbar-light bg-light">
           <div className="container-fluid">
-            <div className="navbar-brand">Find Your Flight</div>
+            <div className="navbar-brand">Enter Your Search</div>
           </div>
         </nav>
+        <form className="" onSubmit={ this.handleSubmit }>
+          <input type="text" onChange={ this.handleChange } />
+          <button className="searches">Search</button>
+          <br />{ this.state.query }
+        </form>
 
       </div>
     );
