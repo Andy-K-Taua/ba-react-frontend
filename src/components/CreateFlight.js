@@ -8,18 +8,20 @@ class CreateFlight extends React.Component {
     origin: '',
     destination: '',
     date: '',
-    plane: '',
-    planeID: ''
+    plane:'',
+    planeID: '',
+    planes: []
   }
 
   componentDidMount() {
     this.fetchPlanes();
+    window.setInterval(this.fetchPlanes, 5000);
   }
 
   fetchPlanes = () => {
     axios.get('http://localhost:3000/airplanes')
     .then(response => {
-      console.log('fetchResponse: ', response);
+      this.setState({planes: response.data});
     })
     .catch(error => {
       console.warn(error);
@@ -38,8 +40,9 @@ class CreateFlight extends React.Component {
   handleDate = (ev) => {
     this.setState({date: ev.target.value});
   }
-  handlePlaneID = (ev) => {
-    this.setState({planeID: ev.target.value});
+  handlePlane = async (ev) => {
+    await this.setState({plane: ev.target.value});
+    this.setState({planeID: this.state.planes.find(plane => plane.name === this.state.plane).id});
   }
   handleSubmit = (ev) => {
     ev.preventDefault();
@@ -57,6 +60,7 @@ class CreateFlight extends React.Component {
       console.warn(error);
     });
   }
+
 
   render() {
 
@@ -89,16 +93,21 @@ class CreateFlight extends React.Component {
               <input type="date" className="form-control" onChange={this.handleDate} />
             </label><br />
           </div>
+
           <div className="col-md-4">
-          <label htmlFor="inputEnterPlane" className="form-label">Enter Plane:
-            <input type="text" className="form-control" placeholder="Plane" onChange={this.handlePlane} />
+          <label htmlFor="inputSelectPlane" className="form-label">Select Plane:
+            <select name="plane" className="form-control" onChange={this.handlePlane}>
+              <option key="0">---Select Plane---</option>
+            {
+              this.state.planes.length > 0
+              &&
+              this.state.planes.map(plane => <option key={plane.id}>{plane.name}</option>)
+            }
+            {/* <input type="text" className="form-control" placeholder="Plane ID" onChange={this.handlePlaneID} /> */}
+            </select>
           </label><br />
           </div>
-          <div className="col-md-4">
-          <label htmlFor="inputEnterPlaneID" className="form-label">Enter Plane ID:
-            <input type="text" className="form-control" placeholder="Plane ID" onChange={this.handlePlaneID} />
-          </label><br />
-          </div>
+
           <div className="col-12">
             <button type="submit" className="btn btn-primary">Create Flight!</button>
           </div>
