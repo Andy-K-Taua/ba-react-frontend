@@ -1,8 +1,11 @@
 import React from 'react';
 import '../App.css';
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 163680390375b86b2702f552ec165352f674a43b
 class SearchForm extends React.Component {
 
   state = {
